@@ -30,6 +30,20 @@ function handleRequest(request) {
       },
     });
   }
+
+  if (pathname.startsWith("/")) {
+    const html = `<html>
+    <ul>
+    <li><a href="/html">HTML</a></li>
+    <li><a href="/json">JSON</a></li>
+    </ul>
+    </html>`;
+    return new Response(html, {
+      headers: {
+        "content-type": "text/html; charset=UTF-8",
+      },
+    });
+  }
 }
 
 addEventListener("fetch", (event) => {
